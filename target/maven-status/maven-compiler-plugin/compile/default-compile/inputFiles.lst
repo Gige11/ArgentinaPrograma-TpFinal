@@ -1,10 +1,11 @@
 C:\Users\User\Desktop\TPfinal\src\main\java\com\argentinaprograma\tpfinal\dominio\Cliente.java
-C:\Users\User\Desktop\TPfinal\src\main\java\repositorios\CategoriaRepositorio.java
-C:\Users\User\Desktop\TPfinal\src\main\java\repositorios\TecnicoRepositorio.java
+C:\Users\User\Desktop\TPfinal\src\main\java\com\argentinaprograma\tpfinal\repositorios\IncidenciaRepositorio.java
 C:\Users\User\Desktop\TPfinal\src\main\java\com\argentinaprograma\tpfinal\dominio\Categoria.java
-C:\Users\User\Desktop\TPfinal\src\main\java\servicios\ClienteServicio.java
+C:\Users\User\Desktop\TPfinal\src\main\java\com\argentinaprograma\tpfinal\config\HibernateUtil.java
 C:\Users\User\Desktop\TPfinal\src\main\java\com\argentinaprograma\tpfinal\dominio\Incidencia.java
+C:\Users\User\Desktop\TPfinal\src\main\java\com\argentinaprograma\tpfinal\repositorios\CategoriaRepositorio.java
+C:\Users\User\Desktop\TPfinal\src\main\java\com\argentinaprograma\tpfinal\repositorios\ClienteRepositorio.java
 C:\Users\User\Desktop\TPfinal\src\main\java\com\argentinaprograma\tpfinal\TPfinal.java
+C:\Users\User\Desktop\TPfinal\src\main\java\com\argentinaprograma\tpfinal\repositorios\TecnicoRepositorio.java
+C:\Users\User\Desktop\TPfinal\src\main\java\com\argentinaprograma\tpfinal\servicios\ClienteServicio.java
 C:\Users\User\Desktop\TPfinal\src\main\java\com\argentinaprograma\tpfinal\dominio\Tecnico.java
-C:\Users\User\Desktop\TPfinal\src\main\java\repositorios\ClienteRepositorio.java
-C:\Users\User\Desktop\TPfinal\src\main\java\repositorios\IncidenciaRepositorio.java

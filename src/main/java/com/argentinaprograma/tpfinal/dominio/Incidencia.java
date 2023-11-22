@@ -112,8 +112,6 @@ public class Incidencia {
 
     public void setId_tecnico(Tecnico id_tecnico) {
         this.id_tecnico = id_tecnico;
-    }
-    
-    
+    }   
     
 }

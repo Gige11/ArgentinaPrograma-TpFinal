@@ -7,7 +7,7 @@ public class Cliente {
     
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private int id_cliente;
+   private long id_cliente;
    
    @Column(unique = true)
    private int dni_cliente;
@@ -27,7 +27,7 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(int id_cliente, int dni_cliente, String nombre_cliente, String direccion_cliente, String mail_cliente, List<Incidencia> incidencias) {
+    public Cliente(long id_cliente, int dni_cliente, String nombre_cliente, String direccion_cliente, String mail_cliente, List<Incidencia> incidencias) {
         this.id_cliente = id_cliente;
         this.dni_cliente = dni_cliente;
         this.nombre_cliente = nombre_cliente;
@@ -36,7 +36,7 @@ public class Cliente {
         this.incidencias = incidencias;
     }
 
-    public int getId_cliente() {
+    public long getId_cliente() {
         return id_cliente;
     }
 
@@ -84,8 +84,10 @@ public class Cliente {
         this.incidencias = incidencias;
     }
 
-    
-   
-   
+    //Para probar su funcionamiento
+    @Override
+    public String toString() {
+        return "Cliente{" + "id_cliente=" + id_cliente + ", dni_cliente=" + dni_cliente + ", nombre_cliente=" + nombre_cliente + ", direccion_cliente=" + direccion_cliente + ", mail_cliente=" + mail_cliente + '}';
+    }      
     
 }

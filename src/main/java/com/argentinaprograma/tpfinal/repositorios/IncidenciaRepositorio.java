@@ -1,4 +1,4 @@
-package repositorios;
+package com.argentinaprograma.tpfinal.repositorios;
 import com.argentinaprograma.tpfinal.dominio.Incidencia;
 import java.util.Date;
 import java.util.List;

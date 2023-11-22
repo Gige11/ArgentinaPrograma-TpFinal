@@ -1,4 +1,4 @@
-package repositorios;
+package com.argentinaprograma.tpfinal.repositorios;
 
 import com.argentinaprograma.tpfinal.dominio.Categoria;
 import com.argentinaprograma.tpfinal.dominio.Cliente;

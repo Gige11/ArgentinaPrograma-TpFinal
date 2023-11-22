@@ -1,8 +1,6 @@
-package repositorios;
+package com.argentinaprograma.tpfinal.repositorios;
 
 import com.argentinaprograma.tpfinal.dominio.Tecnico;
-
-
 
 public interface TecnicoRepositorio {
     

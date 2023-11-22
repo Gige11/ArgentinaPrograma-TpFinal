@@ -1,10 +1,11 @@
+com\argentinaprograma\tpfinal\repositorios\ClienteRepositorio.class
 com\argentinaprograma\tpfinal\dominio\Categoria.class
 com\argentinaprograma\tpfinal\dominio\Cliente.class
 com\argentinaprograma\tpfinal\dominio\Incidencia.class
-repositorios\ClienteRepositorio.class
-repositorios\IncidenciaRepositorio.class
+com\argentinaprograma\tpfinal\servicios\ClienteServicio.class
+com\argentinaprograma\tpfinal\config\HibernateUtil.class
 com\argentinaprograma\tpfinal\TPfinal.class
-servicios\ClienteServicio.class
-repositorios\CategoriaRepositorio.class
+com\argentinaprograma\tpfinal\repositorios\IncidenciaRepositorio.class
 com\argentinaprograma\tpfinal\dominio\Tecnico.class
-repositorios\TecnicoRepositorio.class
+com\argentinaprograma\tpfinal\repositorios\CategoriaRepositorio.class
+com\argentinaprograma\tpfinal\repositorios\TecnicoRepositorio.class
