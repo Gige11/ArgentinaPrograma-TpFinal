@@ -23,30 +23,30 @@ public class Incidencia {
     @Column
     private String estado_incidencia;
     
-    @JoinColumn
+    @JoinColumn(name = "cliente_id")
     @ManyToOne(cascade = CascadeType.ALL)
     private Cliente id_cliente;
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
-    private Categoria id__categoria;
+    @JoinColumn(name = "categoria_id")
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Categoria id_categoria;
     
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
+    @JoinColumn(name = "tecnico_id")
+    @ManyToOne(cascade = CascadeType.ALL)
     private Tecnico id_tecnico;
 
     public Incidencia() {
     }
 
-    public Incidencia(long id_incidencia, String descripcion_incidencia, double costo_incidencia, String estado_incidencia, Cliente id_cliente, Categoria id__categoria, Tecnico id_tecnico) {
+    public Incidencia(long id_incidencia, String descripcion_incidencia, double costo_incidencia, String estado_incidencia, Cliente id_cliente, Categoria id_categoria, Tecnico id_tecnico) {
         this.id_incidencia = id_incidencia;
         this.descripcion_incidencia = descripcion_incidencia;
         this.costo_incidencia = costo_incidencia;
         this.fecha_incidencia = LocalDateTime.now();
         this.estado_incidencia = estado_incidencia;
         this.id_cliente = id_cliente;
-        this.id__categoria = id__categoria;
+        this.id_categoria = id_categoria;
         this.id_tecnico = id_tecnico;
     }
 
@@ -99,12 +99,12 @@ public class Incidencia {
         this.id_cliente = id_cliente;
     }
 
-    public Categoria getId__categoria() {
-        return id__categoria;
+    public Categoria getId_categoria() {
+        return id_categoria;
     }
 
     public void setId__categoria(Categoria id__categoria) {
-        this.id__categoria = id__categoria;
+        this.id_categoria = id_categoria;
     }
 
     public Tecnico getId_tecnico() {

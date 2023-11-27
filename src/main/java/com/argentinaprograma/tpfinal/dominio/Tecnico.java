@@ -1,6 +1,7 @@
 package com.argentinaprograma.tpfinal.dominio;
 
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 public class Tecnico {
@@ -11,6 +12,9 @@ public class Tecnico {
     
     @Column
     private String nombreApellido_tecnico;
+    
+    @OneToMany(mappedBy = "id_tecnico", cascade = CascadeType.ALL)
+    private List<Incidencia> incidencias;
 
     public Tecnico() {
     }

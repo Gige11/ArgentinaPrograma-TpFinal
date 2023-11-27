@@ -1,6 +1,7 @@
 package com.argentinaprograma.tpfinal.dominio;
 
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 public class Categoria {
@@ -11,6 +12,9 @@ public class Categoria {
     
     @Column
     private String descripcion_categoria;
+    
+    @OneToMany(mappedBy = "id_categoria", cascade = CascadeType.ALL)
+    private List<Incidencia> incidencias;
 
     public Categoria() {
     }
