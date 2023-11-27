@@ -12,6 +12,7 @@ import com.argentinaprograma.tpfinal.servicios.CategoriaServicio;
 import com.argentinaprograma.tpfinal.servicios.ClienteServicio;
 import com.argentinaprograma.tpfinal.servicios.IncidenciaServicio;
 import com.argentinaprograma.tpfinal.servicios.TecnicoServicio;
+import javax.swing.JDesktopPane;
 
 /**
  *
@@ -22,7 +23,10 @@ public class CargaIncidencia extends javax.swing.JInternalFrame {
     /**
      * Creates new form CargaIncidencia
      */
-    public CargaIncidencia() {
+    private final JDesktopPane escritorio;
+
+    public CargaIncidencia(JDesktopPane escritorio) {
+        this.escritorio = escritorio;
         initComponents();
     }
 
@@ -49,6 +53,8 @@ public class CargaIncidencia extends javax.swing.JInternalFrame {
         jtfIdCategoria = new javax.swing.JTextField();
         jtfIdTecnico = new javax.swing.JTextField();
         jcbEstado = new javax.swing.JComboBox<>();
+        jbCerrar = new javax.swing.JButton();
+        jbNuevoCliente = new javax.swing.JButton();
 
         jLabel1.setText("Carga de incidencia");
 
@@ -73,14 +79,24 @@ public class CargaIncidencia extends javax.swing.JInternalFrame {
 
         jcbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Finalizado", "En proceso", "Sin atender" }));
 
+        jbCerrar.setText("Cerrar");
+        jbCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCerrarActionPerformed(evt);
+            }
+        });
+
+        jbNuevoCliente.setText("Nuevo Cliente");
+        jbNuevoCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoClienteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(275, 275, 275))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(84, 84, 84)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,15 +108,28 @@ public class CargaIncidencia extends javax.swing.JInternalFrame {
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbGuardarIncidencia, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtfDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jtfIdTecnico, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jtfIdCategoria, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jtfDniCliente, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jcbEstado, javax.swing.GroupLayout.Alignment.LEADING, 0, 119, Short.MAX_VALUE)
-                        .addComponent(jtfCosto, javax.swing.GroupLayout.Alignment.LEADING)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jtfIdTecnico, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtfIdCategoria, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtfDniCliente, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jcbEstado, javax.swing.GroupLayout.Alignment.LEADING, 0, 119, Short.MAX_VALUE)
+                            .addComponent(jtfCosto, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(18, 18, 18)
+                        .addComponent(jbNuevoCliente)))
                 .addGap(24, 24, 24))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(275, 275, 275))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jbGuardarIncidencia, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68)
+                        .addComponent(jbCerrar)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,28 +141,32 @@ public class CargaIncidencia extends javax.swing.JInternalFrame {
                     .addComponent(jLabel2)
                     .addComponent(jtfDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jtfCosto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jcbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jtfDniCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jtfIdCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jtfIdTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jbGuardarIncidencia, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jtfCosto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jcbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(jtfDniCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbNuevoCliente))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(jtfIdCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(jtfIdTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jbGuardarIncidencia, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbCerrar))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -142,36 +175,53 @@ public class CargaIncidencia extends javax.swing.JInternalFrame {
     private void jbGuardarIncidenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarIncidenciaActionPerformed
 
         String descripcion = jtfDescripcion.getText();
-        
+
         double costo = Double.parseDouble(jtfCosto.getText());
-        
+
         String estado = jcbEstado.getSelectedItem().toString();
-        
+
         int dni = Integer.parseInt(jtfDniCliente.getText());
-        
+
         long id_categoria = Long.parseLong(jtfIdCategoria.getText());
-        
+
         long id_tecnico = Long.parseLong(jtfIdTecnico.getText());
-        
+
         ClienteServicio clienteServicio = new ClienteServicio();
-        
+
         Cliente clienteEncontrado = clienteServicio.obtenerClientePorDNI(dni);
-        
+
         CategoriaServicio categoriaServicio = new CategoriaServicio();
-        
+
         Categoria categoriaEncontrada = categoriaServicio.obtenerCategoriaPorID(id_categoria);
-        
+
         TecnicoServicio tecnicoServicio = new TecnicoServicio();
-        
+
         Tecnico tecnicoEncontrado = tecnicoServicio.obtenerTecnicoPorID(id_tecnico);
-        
+
         Incidencia nuevaIncidencia = new Incidencia(id_categoria, descripcion, costo, estado, clienteEncontrado, categoriaEncontrada, tecnicoEncontrado);
-         
+
         IncidenciaServicio incidenciaServicio = new IncidenciaServicio();
-        
+
         incidenciaServicio.guardarIncidencia(nuevaIncidencia);
-             
+
     }//GEN-LAST:event_jbGuardarIncidenciaActionPerformed
+
+    private void jbCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCerrarActionPerformed
+        // TODO add your handling code here:
+        dispose();
+//        Principal p = new Principal();
+//        p.setVisible(true);
+    }//GEN-LAST:event_jbCerrarActionPerformed
+
+    private void jbNuevoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoClienteActionPerformed
+        // TODO add your handling code here:
+        CargaCliente cc = new CargaCliente(escritorio);
+        escritorio.add(cc);
+        
+
+        cc.setVisible(true);
+
+    }//GEN-LAST:event_jbNuevoClienteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -182,7 +232,9 @@ public class CargaIncidencia extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JButton jbCerrar;
     private javax.swing.JButton jbGuardarIncidencia;
+    private javax.swing.JButton jbNuevoCliente;
     private javax.swing.JComboBox<String> jcbEstado;
     private javax.swing.JTextField jtfCosto;
     private javax.swing.JTextField jtfDescripcion;

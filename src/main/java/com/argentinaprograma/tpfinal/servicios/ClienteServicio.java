@@ -5,6 +5,7 @@ import com.argentinaprograma.tpfinal.dominio.Cliente;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import com.argentinaprograma.tpfinal.repositorios.ClienteRepositorio;
+import javax.swing.JOptionPane;
 import org.hibernate.cfg.Configuration;
 
 public class ClienteServicio implements ClienteRepositorio {
@@ -48,7 +49,9 @@ public class ClienteServicio implements ClienteRepositorio {
 
         session.getTransaction().commit();
         session.close();
-        sessionFactory.close();
+        
+        JOptionPane.showMessageDialog(null,"Se ha guardado el cliente correctamente.");
+        
     }
 
     @Override

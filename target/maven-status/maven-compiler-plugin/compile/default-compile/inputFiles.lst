@@ -1,16 +1,17 @@
-C:\Users\User\Desktop\TPfinal\src\main\java\com\argentinaprograma\tpfinal\config\HibernateUtil.java
-C:\Users\User\Desktop\TPfinal\src\main\java\com\argentinaprograma\tpfinal\servicios\CategoriaServicio.java
-C:\Users\User\Desktop\TPfinal\src\main\java\com\argentinaprograma\tpfinal\servicios\IncidenciaServicio.java
-C:\Users\User\Desktop\TPfinal\src\main\java\com\argentinaprograma\tpfinal\TPfinal.java
-C:\Users\User\Desktop\TPfinal\src\main\java\com\argentinaprograma\tpfinal\dominio\Tecnico.java
-C:\Users\User\Desktop\TPfinal\src\main\java\com\argentinaprograma\tpfinal\dominio\Cliente.java
-C:\Users\User\Desktop\TPfinal\src\main\java\com\argentinaprograma\tpfinal\repositorios\IncidenciaRepositorio.java
-C:\Users\User\Desktop\TPfinal\src\main\java\vistas\CargaIncidencia.java
-C:\Users\User\Desktop\TPfinal\src\main\java\com\argentinaprograma\tpfinal\dominio\Categoria.java
-C:\Users\User\Desktop\TPfinal\src\main\java\vistas\Principal.java
-C:\Users\User\Desktop\TPfinal\src\main\java\com\argentinaprograma\tpfinal\dominio\Incidencia.java
-C:\Users\User\Desktop\TPfinal\src\main\java\com\argentinaprograma\tpfinal\servicios\TecnicoServicio.java
-C:\Users\User\Desktop\TPfinal\src\main\java\com\argentinaprograma\tpfinal\repositorios\CategoriaRepositorio.java
-C:\Users\User\Desktop\TPfinal\src\main\java\com\argentinaprograma\tpfinal\repositorios\ClienteRepositorio.java
-C:\Users\User\Desktop\TPfinal\src\main\java\com\argentinaprograma\tpfinal\repositorios\TecnicoRepositorio.java
-C:\Users\User\Desktop\TPfinal\src\main\java\com\argentinaprograma\tpfinal\servicios\ClienteServicio.java
+G:\Java UTN\Prueba Git\ArgentinaPrograma-TpFinal\src\main\java\com\argentinaprograma\tpfinal\repositorios\CategoriaRepositorio.java
+G:\Java UTN\Prueba Git\ArgentinaPrograma-TpFinal\src\main\java\com\argentinaprograma\tpfinal\servicios\IncidenciaServicio.java
+G:\Java UTN\Prueba Git\ArgentinaPrograma-TpFinal\src\main\java\com\argentinaprograma\tpfinal\dominio\Categoria.java
+G:\Java UTN\Prueba Git\ArgentinaPrograma-TpFinal\src\main\java\com\argentinaprograma\tpfinal\repositorios\ClienteRepositorio.java
+G:\Java UTN\Prueba Git\ArgentinaPrograma-TpFinal\src\main\java\com\argentinaprograma\tpfinal\servicios\TecnicoServicio.java
+G:\Java UTN\Prueba Git\ArgentinaPrograma-TpFinal\src\main\java\vistas\Principal.java
+G:\Java UTN\Prueba Git\ArgentinaPrograma-TpFinal\src\main\java\com\argentinaprograma\tpfinal\repositorios\TecnicoRepositorio.java
+G:\Java UTN\Prueba Git\ArgentinaPrograma-TpFinal\src\main\java\com\argentinaprograma\tpfinal\servicios\ClienteServicio.java
+G:\Java UTN\Prueba Git\ArgentinaPrograma-TpFinal\src\main\java\vistas\CargaIncidencia.java
+G:\Java UTN\Prueba Git\ArgentinaPrograma-TpFinal\src\main\java\com\argentinaprograma\tpfinal\dominio\Incidencia.java
+G:\Java UTN\Prueba Git\ArgentinaPrograma-TpFinal\src\main\java\com\argentinaprograma\tpfinal\repositorios\IncidenciaRepositorio.java
+G:\Java UTN\Prueba Git\ArgentinaPrograma-TpFinal\src\main\java\com\argentinaprograma\tpfinal\TPfinal.java
+G:\Java UTN\Prueba Git\ArgentinaPrograma-TpFinal\src\main\java\com\argentinaprograma\tpfinal\dominio\Cliente.java
+G:\Java UTN\Prueba Git\ArgentinaPrograma-TpFinal\src\main\java\com\argentinaprograma\tpfinal\dominio\Tecnico.java
+G:\Java UTN\Prueba Git\ArgentinaPrograma-TpFinal\src\main\java\com\argentinaprograma\tpfinal\config\HibernateUtil.java
+G:\Java UTN\Prueba Git\ArgentinaPrograma-TpFinal\src\main\java\vistas\BuscarIncidencia.java
+G:\Java UTN\Prueba Git\ArgentinaPrograma-TpFinal\src\main\java\com\argentinaprograma\tpfinal\servicios\CategoriaServicio.java

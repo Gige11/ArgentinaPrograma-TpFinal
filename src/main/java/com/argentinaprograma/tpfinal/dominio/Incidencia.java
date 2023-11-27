@@ -1,7 +1,9 @@
 package com.argentinaprograma.tpfinal.dominio;
 
 import jakarta.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import static java.time.temporal.ChronoUnit.DAYS;
 import org.hibernate.annotations.Type;
 
 @Entity
@@ -18,7 +20,7 @@ public class Incidencia {
     private double costo_incidencia;
     
     @Column
-    private LocalDateTime fecha_incidencia;
+    private LocalDate fecha_incidencia;
     
     @Column
     private String estado_incidencia;
@@ -43,7 +45,7 @@ public class Incidencia {
         this.id_incidencia = id_incidencia;
         this.descripcion_incidencia = descripcion_incidencia;
         this.costo_incidencia = costo_incidencia;
-        this.fecha_incidencia = LocalDateTime.now();
+        this.fecha_incidencia = LocalDate.now();
         this.estado_incidencia = estado_incidencia;
         this.id_cliente = id_cliente;
         this.id_categoria = id_categoria;
@@ -74,11 +76,11 @@ public class Incidencia {
         this.costo_incidencia = costo_incidencia;
     }
 
-    public LocalDateTime getFecha_incidencia() {
+    public LocalDate getFecha_incidencia() {
         return fecha_incidencia;
     }
 
-    public void setFecha_incidencia(LocalDateTime fecha_incidencia) {
+    public void setFecha_incidencia(LocalDate fecha_incidencia) {
         this.fecha_incidencia = fecha_incidencia;
     }
 
@@ -114,5 +116,11 @@ public class Incidencia {
     public void setId_tecnico(Tecnico id_tecnico) {
         this.id_tecnico = id_tecnico;
     }   
+
+    @Override
+    public String toString() {
+        return "Incidencia{" + "id_incidencia=" + id_incidencia + ", descripcion_incidencia=" + descripcion_incidencia + ", costo_incidencia=" + costo_incidencia + ", fecha_incidencia=" + fecha_incidencia + ", estado_incidencia=" + estado_incidencia + ", id_cliente=" + id_cliente + ", id_categoria=" + id_categoria + ", id_tecnico=" + id_tecnico + '}';
+    }
+    
     
 }
