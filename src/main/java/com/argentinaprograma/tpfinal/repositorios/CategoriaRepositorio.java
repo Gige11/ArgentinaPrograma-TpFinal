@@ -5,7 +5,7 @@ import com.argentinaprograma.tpfinal.dominio.Cliente;
 
 public interface CategoriaRepositorio {
     
-    Categoria obtenerCategoriaPorID(int id_categoria);
+    Categoria obtenerCategoriaPorID(long id_categoria);
     void guardarCategoria(Categoria categoria);
     void eliminarCategoria(Long id_categoria);
     

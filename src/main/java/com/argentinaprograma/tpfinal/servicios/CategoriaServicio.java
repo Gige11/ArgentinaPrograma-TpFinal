@@ -10,7 +10,7 @@ import org.hibernate.SessionFactory;
 public class CategoriaServicio implements CategoriaRepositorio{
 
     @Override
-    public Categoria obtenerCategoriaPorID(int id_categoria) {
+    public Categoria obtenerCategoriaPorID(long id_categoria) {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();
         Categoria categoria = null;

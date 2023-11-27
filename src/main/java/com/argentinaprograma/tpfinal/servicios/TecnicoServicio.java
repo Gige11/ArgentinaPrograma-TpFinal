@@ -9,7 +9,7 @@ import org.hibernate.SessionFactory;
 public class TecnicoServicio implements TecnicoRepositorio{
 
     @Override
-    public Tecnico obtenerTecnicoPorID(int id_tecnico) {
+    public Tecnico obtenerTecnicoPorID(long id_tecnico) {
         
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();
