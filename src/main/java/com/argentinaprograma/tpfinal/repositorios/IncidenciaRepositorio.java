@@ -7,7 +7,7 @@ import java.util.List;
 public interface IncidenciaRepositorio {
     
     List<Incidencia> obtenerTodasLasIncidencia();
-    Incidencia obtenerIncidenciaPorId(Long id_incidencia);
+    //ver si es necesario Incidencia obtenerIncidenciaPorId(Long id_incidencia); 
     void guardarIncidencia(Incidencia incidencia);
     void eliminarIncidencia(Long id_incidencia);
     List<Incidencia> obtenerIncidenciaPorFecha(Date fechaInicial, Date fechaFinal);
