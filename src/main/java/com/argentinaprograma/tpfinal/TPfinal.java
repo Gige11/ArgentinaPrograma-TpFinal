@@ -1,6 +1,7 @@
 package com.argentinaprograma.tpfinal;
 
 import com.argentinaprograma.tpfinal.dominio.Cliente;
+import com.argentinaprograma.tpfinal.servicios.CategoriaServicio;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -29,6 +30,10 @@ public class TPfinal {
         
         //obtenerClientePorDNI
         clienteServicio.obtenerClientePorDNI(9018589);
+        
+        CategoriaServicio categoriaServicio = new CategoriaServicio();
+        
+        categoriaServicio.obtenerCategoriaPorID(3);
         
     }
 }

@@ -4,6 +4,7 @@ com\argentinaprograma\tpfinal\config\HibernateUtil.class
 com\argentinaprograma\tpfinal\TPfinal.class
 com\argentinaprograma\tpfinal\repositorios\ClienteRepositorio.class
 com\argentinaprograma\tpfinal\dominio\Categoria.class
+com\argentinaprograma\tpfinal\servicios\CategoriaServicio.class
 com\argentinaprograma\tpfinal\dominio\Incidencia.class
 com\argentinaprograma\tpfinal\repositorios\IncidenciaRepositorio.class
 com\argentinaprograma\tpfinal\dominio\Tecnico.class

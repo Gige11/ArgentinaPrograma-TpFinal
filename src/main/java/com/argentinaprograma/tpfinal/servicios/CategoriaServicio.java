@@ -1,50 +1,47 @@
 package com.argentinaprograma.tpfinal.servicios;
 
 import com.argentinaprograma.tpfinal.config.HibernateUtil;
+import com.argentinaprograma.tpfinal.dominio.Categoria;
 import com.argentinaprograma.tpfinal.dominio.Cliente;
+import com.argentinaprograma.tpfinal.repositorios.CategoriaRepositorio;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import com.argentinaprograma.tpfinal.repositorios.ClienteRepositorio;
-import org.hibernate.cfg.Configuration;
 
-public class ClienteServicio implements ClienteRepositorio {
+public class CategoriaServicio implements CategoriaRepositorio{
 
     @Override
-    public Cliente obtenerClientePorDNI(int dni_cliente) {
-        
+    public Categoria obtenerCategoriaPorID(int id_categoria) {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();
-        Cliente cliente = null;
+        Categoria categoria = null;
         
         try {
             session.beginTransaction();
             
-            cliente = session.createQuery("FROM Cliente WHERE dni_cliente = :dni", Cliente.class)
-                    .setParameter("dni",dni_cliente)
+            categoria = session.createQuery("FROM Categoria WHERE id_categoria = :id_categoria", Categoria.class)
+                    .setParameter("id_categoria",id_categoria)
                     .uniqueResult();
             
             session.getTransaction().commit();
             
         } catch (Exception e) {
-            System.out.println("El cliente no se encuentra");
+            System.out.println("La categoria no se encuentra");
         } finally {
             session.close();
         }
-       
-        return cliente;
-        
-        
+      
+        return categoria;
     }
 
     @Override
-    public void guardarCliente(Cliente cliente) {
+    public void guardarCategoria(Categoria categoria) {
         
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();
 
         session.beginTransaction();
         
-        session.save(cliente);
+        session.save(categoria);
 
         session.getTransaction().commit();
         session.close();
@@ -52,25 +49,23 @@ public class ClienteServicio implements ClienteRepositorio {
     }
 
     @Override
-    public void eliminarCliente(int id_cliente) {
+    public void eliminarCategoria(Long id_categoria) {
         
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();
         
         session.beginTransaction();
         
-        Cliente cliente = session.get(Cliente.class, id_cliente);
+        Categoria categoria = session.get(Categoria.class, id_categoria);
         
-        if(cliente != null){
-            session.delete(cliente);
+        if(categoria != null){
+            session.delete(categoria);
             session.getTransaction().commit();
         } else {
-            System.out.println("No existe este cliente");
+            System.out.println("No existe esta categoria");
         }
         
         session.close();
-        
-        
     }
-    
+          
 }

@@ -1,26 +1,25 @@
 package com.argentinaprograma.tpfinal.servicios;
 
 import com.argentinaprograma.tpfinal.config.HibernateUtil;
-import com.argentinaprograma.tpfinal.dominio.Cliente;
+import com.argentinaprograma.tpfinal.dominio.Tecnico;
+import com.argentinaprograma.tpfinal.repositorios.TecnicoRepositorio;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import com.argentinaprograma.tpfinal.repositorios.ClienteRepositorio;
-import org.hibernate.cfg.Configuration;
 
-public class ClienteServicio implements ClienteRepositorio {
+public class TecnicoServicio implements TecnicoRepositorio{
 
     @Override
-    public Cliente obtenerClientePorDNI(int dni_cliente) {
+    public Tecnico obtenerTecnicoPorID(int id_tecnico) {
         
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();
-        Cliente cliente = null;
+        Tecnico tecnico = null;
         
         try {
             session.beginTransaction();
             
-            cliente = session.createQuery("FROM Cliente WHERE dni_cliente = :dni", Cliente.class)
-                    .setParameter("dni",dni_cliente)
+            tecnico = session.createQuery("FROM Tecnico WHERE id_tecnico = :id_tecnico", Tecnico.class)
+                    .setParameter("id_tecnico",id_tecnico)
                     .uniqueResult();
             
             session.getTransaction().commit();
@@ -30,21 +29,19 @@ public class ClienteServicio implements ClienteRepositorio {
         } finally {
             session.close();
         }
-       
-        return cliente;
-        
-        
+              
+        return tecnico;
     }
 
     @Override
-    public void guardarCliente(Cliente cliente) {
+    public void guardarTecnico(Tecnico tecnico) {
         
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();
 
         session.beginTransaction();
         
-        session.save(cliente);
+        session.save(tecnico);
 
         session.getTransaction().commit();
         session.close();
@@ -52,25 +49,23 @@ public class ClienteServicio implements ClienteRepositorio {
     }
 
     @Override
-    public void eliminarCliente(int id_cliente) {
+    public void eliminarTecnico(Long id_tecnico) {
         
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();
         
         session.beginTransaction();
         
-        Cliente cliente = session.get(Cliente.class, id_cliente);
+        Tecnico tecnico = session.get(Tecnico.class, id_tecnico);
         
-        if(cliente != null){
-            session.delete(cliente);
+        if(tecnico != null){
+            session.delete(tecnico);
             session.getTransaction().commit();
         } else {
-            System.out.println("No existe este cliente");
+            System.out.println("No se puede eliminar");
         }
         
         session.close();
-        
-        
     }
     
 }
