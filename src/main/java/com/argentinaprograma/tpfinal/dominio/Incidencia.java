@@ -1,7 +1,7 @@
 package com.argentinaprograma.tpfinal.dominio;
 
 import jakarta.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 import org.hibernate.annotations.Type;
 
 @Entity
@@ -18,7 +18,7 @@ public class Incidencia {
     private double costo_incidencia;
     
     @Column
-    private Date fecha_incidencia;
+    private LocalDateTime fecha_incidencia;
     
     @Column
     private String estado_incidencia;
@@ -39,11 +39,11 @@ public class Incidencia {
     public Incidencia() {
     }
 
-    public Incidencia(long id_incidencia, String descripcion_incidencia, double costo_incidencia, Date fecha_incidencia, String estado_incidencia, Cliente id_cliente, Categoria id__categoria, Tecnico id_tecnico) {
+    public Incidencia(long id_incidencia, String descripcion_incidencia, double costo_incidencia, String estado_incidencia, Cliente id_cliente, Categoria id__categoria, Tecnico id_tecnico) {
         this.id_incidencia = id_incidencia;
         this.descripcion_incidencia = descripcion_incidencia;
         this.costo_incidencia = costo_incidencia;
-        this.fecha_incidencia = fecha_incidencia;
+        this.fecha_incidencia = LocalDateTime.now();
         this.estado_incidencia = estado_incidencia;
         this.id_cliente = id_cliente;
         this.id__categoria = id__categoria;
@@ -74,13 +74,14 @@ public class Incidencia {
         this.costo_incidencia = costo_incidencia;
     }
 
-    public Date getFecha_incidencia() {
+    public LocalDateTime getFecha_incidencia() {
         return fecha_incidencia;
     }
 
-    public void setFecha_incidencia(Date fecha_incidencia) {
+    public void setFecha_incidencia(LocalDateTime fecha_incidencia) {
         this.fecha_incidencia = fecha_incidencia;
     }
+
 
     public String getEstado_incidencia() {
         return estado_incidencia;

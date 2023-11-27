@@ -32,6 +32,7 @@ public class ClienteServicio implements ClienteRepositorio {
         }
         
         System.out.println(cliente);
+        
         return cliente;
         
         
