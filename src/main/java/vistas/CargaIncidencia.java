@@ -12,7 +12,9 @@ import com.argentinaprograma.tpfinal.servicios.CategoriaServicio;
 import com.argentinaprograma.tpfinal.servicios.ClienteServicio;
 import com.argentinaprograma.tpfinal.servicios.IncidenciaServicio;
 import com.argentinaprograma.tpfinal.servicios.TecnicoServicio;
+import java.util.List;
 import javax.swing.JDesktopPane;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -28,6 +30,9 @@ public class CargaIncidencia extends javax.swing.JInternalFrame {
     public CargaIncidencia(JDesktopPane escritorio) {
         this.escritorio = escritorio;
         initComponents();
+        
+        cargarComboCategoria();
+        cargarComboTecnico();
     }
 
     /**
@@ -50,11 +55,11 @@ public class CargaIncidencia extends javax.swing.JInternalFrame {
         jtfDescripcion = new javax.swing.JTextField();
         jtfCosto = new javax.swing.JTextField();
         jtfDniCliente = new javax.swing.JTextField();
-        jtfIdCategoria = new javax.swing.JTextField();
-        jtfIdTecnico = new javax.swing.JTextField();
         jcbEstado = new javax.swing.JComboBox<>();
         jbCerrar = new javax.swing.JButton();
         jbNuevoCliente = new javax.swing.JButton();
+        jcbCategoria = new javax.swing.JComboBox<>();
+        jcbTecnico = new javax.swing.JComboBox<>();
 
         jLabel1.setText("Carga de incidencia");
 
@@ -66,9 +71,9 @@ public class CargaIncidencia extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Dni Cliente");
 
-        jLabel6.setText("ID Categoria");
+        jLabel6.setText("Categoria");
 
-        jLabel7.setText("ID Tecnico");
+        jLabel7.setText("Tecnico");
 
         jbGuardarIncidencia.setText("Guardar Incidencia");
         jbGuardarIncidencia.addActionListener(new java.awt.event.ActionListener() {
@@ -110,15 +115,19 @@ public class CargaIncidencia extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jtfDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jtfIdTecnico, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtfIdCategoria, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtfDniCliente, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jcbEstado, javax.swing.GroupLayout.Alignment.LEADING, 0, 119, Short.MAX_VALUE)
-                            .addComponent(jtfCosto, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jtfDniCliente, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jcbEstado, javax.swing.GroupLayout.Alignment.LEADING, 0, 119, Short.MAX_VALUE)
+                                .addComponent(jtfCosto, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jcbCategoria, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jcbTecnico, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jbNuevoCliente)))
-                .addGap(24, 24, 24))
+                .addGap(90, 90, 90))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,11 +167,11 @@ public class CargaIncidencia extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(jtfIdCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jcbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(jtfIdTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jcbTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jbGuardarIncidencia, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jbCerrar))
@@ -173,36 +182,50 @@ public class CargaIncidencia extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbGuardarIncidenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarIncidenciaActionPerformed
+       
+        try {
+            
+            String descripcion = jtfDescripcion.getText();
 
-        String descripcion = jtfDescripcion.getText();
+            double costo = Double.parseDouble(jtfCosto.getText());
 
-        double costo = Double.parseDouble(jtfCosto.getText());
+            String estado = jcbEstado.getSelectedItem().toString();
 
-        String estado = jcbEstado.getSelectedItem().toString();
+            int dni = Integer.parseInt(jtfDniCliente.getText());
 
-        int dni = Integer.parseInt(jtfDniCliente.getText());
+            /////////
+            Categoria categoriaSeleccionada = (Categoria) jcbCategoria.getSelectedItem();
+            long id_categoria = (categoriaSeleccionada.getId_categoria());
+            /////////
 
-        long id_categoria = Long.parseLong(jtfIdCategoria.getText());
+            Tecnico tecnicoSeleccionado = (Tecnico) jcbTecnico.getSelectedItem();
+            long id_tecnico = (tecnicoSeleccionado.getId_tecnico());
+            
+            ClienteServicio clienteServicio = new ClienteServicio();
 
-        long id_tecnico = Long.parseLong(jtfIdTecnico.getText());
+            Cliente clienteEncontrado = clienteServicio.obtenerClientePorDNI(dni);
 
-        ClienteServicio clienteServicio = new ClienteServicio();
+            CategoriaServicio categoriaServicio = new CategoriaServicio();
 
-        Cliente clienteEncontrado = clienteServicio.obtenerClientePorDNI(dni);
+            Categoria categoriaEncontrada = categoriaServicio.obtenerCategoriaPorID(id_categoria);
 
-        CategoriaServicio categoriaServicio = new CategoriaServicio();
+            TecnicoServicio tecnicoServicio = new TecnicoServicio();
 
-        Categoria categoriaEncontrada = categoriaServicio.obtenerCategoriaPorID(id_categoria);
+            Tecnico tecnicoEncontrado = tecnicoServicio.obtenerTecnicoPorID(id_tecnico);
 
-        TecnicoServicio tecnicoServicio = new TecnicoServicio();
+            Incidencia nuevaIncidencia = new Incidencia(id_categoria, descripcion, costo, estado, clienteEncontrado, categoriaEncontrada, tecnicoEncontrado);
 
-        Tecnico tecnicoEncontrado = tecnicoServicio.obtenerTecnicoPorID(id_tecnico);
+            IncidenciaServicio incidenciaServicio = new IncidenciaServicio();
 
-        Incidencia nuevaIncidencia = new Incidencia(id_categoria, descripcion, costo, estado, clienteEncontrado, categoriaEncontrada, tecnicoEncontrado);
+            incidenciaServicio.guardarIncidencia(nuevaIncidencia);
+            
+        } catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(null, "Ingrese datos validos");
+            
+        }
+        
 
-        IncidenciaServicio incidenciaServicio = new IncidenciaServicio();
-
-        incidenciaServicio.guardarIncidencia(nuevaIncidencia);
 
     }//GEN-LAST:event_jbGuardarIncidenciaActionPerformed
 
@@ -235,11 +258,30 @@ public class CargaIncidencia extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbCerrar;
     private javax.swing.JButton jbGuardarIncidencia;
     private javax.swing.JButton jbNuevoCliente;
+    private javax.swing.JComboBox<Categoria> jcbCategoria;
     private javax.swing.JComboBox<String> jcbEstado;
+    private javax.swing.JComboBox<Tecnico> jcbTecnico;
     private javax.swing.JTextField jtfCosto;
     private javax.swing.JTextField jtfDescripcion;
     private javax.swing.JTextField jtfDniCliente;
-    private javax.swing.JTextField jtfIdCategoria;
-    private javax.swing.JTextField jtfIdTecnico;
     // End of variables declaration//GEN-END:variables
+
+    public void cargarComboCategoria() {
+        CategoriaServicio categoriaServicio = new CategoriaServicio();
+        List<Categoria> listaCategoria = categoriaServicio.obtenerTodasLasCategorias();
+
+        for (Categoria categoria : listaCategoria) {
+            jcbCategoria.addItem(categoria);
+        }
+    }
+    
+    public void cargarComboTecnico() {
+        TecnicoServicio tecnicoServicio = new TecnicoServicio();
+        List<Tecnico> listaTecnicos = tecnicoServicio.obtenerTodosLosTecnicos();
+
+        for (Tecnico tecnico : listaTecnicos) {
+            jcbTecnico.addItem(tecnico);
+        }
+    }
+    
 }

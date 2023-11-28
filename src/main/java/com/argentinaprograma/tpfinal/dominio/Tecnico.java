@@ -39,5 +39,12 @@ public class Tecnico {
     public void setNombreApellido_tecnico(String nombreApellido_tecnico) {
         this.nombreApellido_tecnico = nombreApellido_tecnico;
     }
+
+    @Override
+    public String toString() {
+        return nombreApellido_tecnico;
+    }
+    
+    
        
 }

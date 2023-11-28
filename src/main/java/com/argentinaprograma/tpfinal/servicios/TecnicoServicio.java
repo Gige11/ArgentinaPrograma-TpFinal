@@ -3,6 +3,7 @@ package com.argentinaprograma.tpfinal.servicios;
 import com.argentinaprograma.tpfinal.config.HibernateUtil;
 import com.argentinaprograma.tpfinal.dominio.Tecnico;
 import com.argentinaprograma.tpfinal.repositorios.TecnicoRepositorio;
+import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -66,6 +67,21 @@ public class TecnicoServicio implements TecnicoRepositorio{
         }
         
         session.close();
+    }
+
+    @Override
+    public List<Tecnico> obtenerTodosLosTecnicos() {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        List<Tecnico> tecnicos = null;
+
+        session.beginTransaction();
+
+        tecnicos = session.createQuery("FROM Tecnico", Tecnico.class).getResultList();
+
+        session.close();
+
+        return tecnicos;
     }
     
 }

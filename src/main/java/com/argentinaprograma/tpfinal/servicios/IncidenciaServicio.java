@@ -40,10 +40,13 @@ public class IncidenciaServicio implements IncidenciaRepositorio {
         session.beginTransaction();
 
         if (incidencia.getId_cliente() == null) {
-            JOptionPane.showMessageDialog(null, "Ingresar cliente válido.");
+            JOptionPane.showMessageDialog(null, "No se encontro un cliente asociado al DNI");
         } else {
+            
             session.save(incidencia);
-
+            //session.persist(incidencia);
+            
+            
             session.getTransaction().commit();
             session.close();
             
@@ -89,7 +92,6 @@ public class IncidenciaServicio implements IncidenciaRepositorio {
 
         return incidencias;
 
-        //posible problema por session cerrada 
     }
 
 }

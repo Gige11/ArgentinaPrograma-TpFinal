@@ -4,6 +4,7 @@ import com.argentinaprograma.tpfinal.config.HibernateUtil;
 import com.argentinaprograma.tpfinal.dominio.Categoria;
 import com.argentinaprograma.tpfinal.dominio.Cliente;
 import com.argentinaprograma.tpfinal.repositorios.CategoriaRepositorio;
+import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -66,6 +67,21 @@ public class CategoriaServicio implements CategoriaRepositorio{
         }
         
         session.close();
+    }
+
+    @Override
+    public List<Categoria> obtenerTodasLasCategorias() {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        List<Categoria> categorias = null;
+
+        session.beginTransaction();
+
+        categorias = session.createQuery("FROM Categoria", Categoria.class).getResultList();
+
+        session.close();
+
+        return categorias;
     }
           
 }

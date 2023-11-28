@@ -16,7 +16,7 @@ public class ClienteServicio implements ClienteRepositorio {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();
         Cliente cliente = null;
-        
+                     
         try {
             session.beginTransaction();
             
@@ -27,7 +27,7 @@ public class ClienteServicio implements ClienteRepositorio {
             session.getTransaction().commit();
             
         } catch (Exception e) {
-            System.out.println("El cliente no se encuentra");
+            System.out.println("Falla al traer el cliente por DNI");
         } finally {
             session.close();
         }
@@ -46,6 +46,7 @@ public class ClienteServicio implements ClienteRepositorio {
         session.beginTransaction();
         
         session.save(cliente);
+       
 
         session.getTransaction().commit();
         session.close();

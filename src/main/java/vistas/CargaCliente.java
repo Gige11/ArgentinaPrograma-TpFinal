@@ -14,6 +14,7 @@ import com.argentinaprograma.tpfinal.servicios.IncidenciaServicio;
 import com.argentinaprograma.tpfinal.servicios.TecnicoServicio;
 import java.util.List;
 import javax.swing.JDesktopPane;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -139,27 +140,43 @@ public class CargaCliente extends javax.swing.JInternalFrame {
 
     private void jbGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarClienteActionPerformed
 
-        String nombre = jtfNombre.getText();
+        try {
+            String nombre = jtfNombre.getText();
         
-        String direccion = jtfDireccion.getText();
+            String direccion = jtfDireccion.getText();
 
-        int dni = Integer.parseInt(jtfDniCliente.getText());
+            int dni = Integer.parseInt(jtfDniCliente.getText());
 
-        String mail = jtfMail.getText();
-        
-        List<Incidencia> incidencias;
-        
-        
-        Cliente clienteNuevo = new Cliente();
-        
-        clienteNuevo.setNombre_cliente(nombre);
-        clienteNuevo.setDireccion_cliente(direccion);
-        clienteNuevo.setDni_cliente(dni);
-        clienteNuevo.setMail_cliente(mail);
-        
-        ClienteServicio cs = new ClienteServicio();
-        
-        cs.guardarCliente(clienteNuevo);
+            String mail = jtfMail.getText();
+
+            List<Incidencia> incidencias;
+
+
+            Cliente clienteNuevo = new Cliente();
+
+            clienteNuevo.setNombre_cliente(nombre);
+            clienteNuevo.setDireccion_cliente(direccion);
+            clienteNuevo.setDni_cliente(dni);     
+            clienteNuevo.setMail_cliente(mail);
+
+            ClienteServicio cs = new ClienteServicio();
+            
+            Cliente cliente = cs.obtenerClientePorDNI(dni);
+            
+            //controlamos que no exista un cliente con el mismo DNI
+            if(cliente != null){
+                JOptionPane.showMessageDialog(null, "Existe un cliente con el mismo DNI");
+            }else{
+                clienteNuevo.setDni_cliente(dni);
+                cs.guardarCliente(clienteNuevo);
+            }
+            
+        } catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(null, "Ingrese datos validos");
+            
+        }
+              
         
     }//GEN-LAST:event_jbGuardarClienteActionPerformed
 
