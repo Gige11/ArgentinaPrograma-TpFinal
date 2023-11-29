@@ -15,7 +15,6 @@ com\argentinaprograma\tpfinal\dominio\Tecnico.class
 com\argentinaprograma\tpfinal\repositorios\CategoriaRepositorio.class
 vistas\CargaCliente$2.class
 com\argentinaprograma\tpfinal\dominio\Cliente.class
-vistas\BuscarIncidencia$3.class
 vistas\BuscarIncidencia.class
 com\argentinaprograma\tpfinal\TPfinal.class
 vistas\BuscarIncidencia$1.class
